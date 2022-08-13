@@ -1,21 +1,21 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { DEFAULT_EMOJIS, EmojiSelector } from "./index";
+import { DEFAULT_MOODS_LIST, MoodSelector } from "./index";
 
-const story: ComponentMeta<typeof EmojiSelector> = {
+const story: ComponentMeta<typeof MoodSelector> = {
   title: "Emoji Selector",
-  component: EmojiSelector,
+  component: MoodSelector,
   argTypes: {
-    emojis: {},
+    moods: {},
   },
 };
 export default story;
 
-const Template: ComponentStory<typeof EmojiSelector> = (args) => (
-  <EmojiSelector {...args} />
+const Template: ComponentStory<typeof MoodSelector> = (args) => (
+  <MoodSelector {...args} />
 );
 
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-  emojis: DEFAULT_EMOJIS,
+  moods: DEFAULT_MOODS_LIST,
 };
