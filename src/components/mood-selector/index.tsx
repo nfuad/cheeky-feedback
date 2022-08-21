@@ -1,4 +1,4 @@
-import { styled } from "@stitches/react";
+import { styled } from "../../theme";
 import React from "react";
 import { Mood, MoodList, MOODS_DATA } from "../../moods";
 
@@ -8,19 +8,23 @@ const MoodsContainer = styled("div", {
   display: "flex",
   alignContent: "center",
   columnGap: "8px",
+  // marginBottom: "42px",
+  marginTop: "10px"
 });
 
 const MoodIcon = styled("div", {
   padding: "2px",
   paddingTop: "16px",
   transition:
-    "transform 200ms cubic-bezier(.5,-1,.5,2), filter 150ms ease-in-out;",
-  filter: "blur(1.75px)",
-  cursor: "pointer",
+    "transform 200ms cubic-bezier(.5,-1,.5,2), filter 150ms ease-in-out; opacity 1500ms ease-in-out",
+  filter: "blur(1.5px)",
+  opacity: 0.5,
+  zIndex: 10,
 
   "&:hover": {
     transform: "scale(1.12)",
     filter: "blur(0)",
+    opacity: 0.7,
   },
 });
 
@@ -28,22 +32,23 @@ const GlowingBackround = styled("div", {
   background:
     "linear-gradient(179.3deg, #FFD239 3.97%, rgba(255, 201, 51, 0.24) 58.23%, #E82992 106.1%)",
   filter: "blur(30px)",
-  position: "relative",
+  position: "absolute",
   height: "100%",
   width: "100%",
   opacity: 0,
   transition: "opacity 300ms ease-in-out",
-  top: "-66px",
-  zIndex: -100,
+  // top: "-66px",
+  zIndex: 0,
 });
 
 const MoodTooltip = styled("div", {
   position: "absolute",
-  top: "0",
-  background: "rgba(255, 255, 255, 0.1)",
+  top: "-16px",
+  zIndex: 100,
+  background: "$bg2",
   fontFamily: "Roboto",
   fontSize: "14px",
-  color: "rgba(255, 255, 255, 0.7)",
+  color: "$btnText",
   borderRadius: "8px",
   padding: "3px 10px",
   display: "none"
@@ -54,6 +59,8 @@ const MoodLabel = styled("label", {
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
+  position: "relative",
+  cursor: "pointer",
 
   "& input": {
     // Hide the default raio select buttons
@@ -68,6 +75,7 @@ const MoodLabel = styled("label", {
       filter: "blur(0)",
       borderColor: "orange",
       transform: "scale(1.315)",
+      opacity: 1,
     },
 
     [`&:checked ~ ${GlowingBackround}`]: {
@@ -77,13 +85,13 @@ const MoodLabel = styled("label", {
 });
 
 export interface Props {
-  moods?: MoodList;
-  handleChange: (mood: Mood) => void;
+  moods: MoodList;
+  handleChange?: (mood: Mood) => void;
 }
 
 export const MoodSelector: React.FC<Props> = ({
-  moods = DEFAULT_MOODS_LIST,
-  handleChange,
+  moods,
+  handleChange = () => {},
 }) => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const mood = moods.find((m) => m.id === e.target.value);
