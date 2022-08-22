@@ -38,7 +38,6 @@ const Box = styled("div", {
 export const decorators = [
   (Story) => {
     const theme = useDarkMode() ? darkTheme : "";
-    console.log("theme:", useDarkMode());
     return (
       <Box className={theme}>
         <Story />

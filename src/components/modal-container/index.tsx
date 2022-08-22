@@ -1,4 +1,5 @@
 import { styled } from "@stitches/react";
+import { XIcon } from "../../icons/XIcon";
 
 const Container = styled("div", {
   background: "$bg1",
@@ -49,7 +50,7 @@ export const ModalContainer: React.FC<ModalContainerProps> = ({
       <Header>
         {headerText}
         <CloseButton aria-label="Close Feedback Modal">
-          <img src="/icons/x-icon.svg" height="16px" width="16px" />
+          <XIcon />
         </CloseButton>
       </Header>
       {children}
