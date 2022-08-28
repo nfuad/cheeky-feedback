@@ -6,8 +6,6 @@ const FormContainer = styled("div", {
   flexDirection: "column",
   alignItems: "center",
   rowGap: "10px",
-  
-  // padding: "5px",
 
   overflow: "hidden",
   maxHeight: 0,
@@ -18,7 +16,7 @@ const TextArea = styled("textarea", {
   padding: "8px 12px",
   borderRadius: "12px",
   border: "1px solid $border",
-  background: "$bg2",
+  background: "$bgSecondary",
   resize: "none",
   outline: "none",
   transition: "box-shadow 300ms ease-in-out",
@@ -32,10 +30,6 @@ const TextArea = styled("textarea", {
   width: "100%",
   minHeight: "112px",
   boxSizing: "border-box",
-
-  // "&:focus": {
-  //   boxShadow: "0px 0px 2px 2px $colors$focus",
-  // },
 });
 
 const Button = styled("button", {
@@ -43,7 +37,7 @@ const Button = styled("button", {
   borderRadius: "12px",
   border: "1px solid $border",
   padding: "8px 24px",
-  background: "$bg2",
+  background: "$bgSecondary",
 
   color: "$btnText",
   fontsize: "14px",
@@ -52,7 +46,7 @@ const Button = styled("button", {
   cursor: "pointer",
 });
 
-export interface FormProps {
+export type FormProps = {
   isCollapsed: boolean;
 }
 

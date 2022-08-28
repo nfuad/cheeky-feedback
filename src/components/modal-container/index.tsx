@@ -2,7 +2,7 @@ import { styled } from "@stitches/react";
 import { XIcon } from "../../icons/XIcon";
 
 const Container = styled("div", {
-  background: "$bg1",
+  background: "$bg",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -24,7 +24,6 @@ const Header = styled("div", {
   alignItems: "center",
 
   marginBottom: "40px",
-  // position: "relative",
 });
 
 const CloseButton = styled("button", {
@@ -36,7 +35,7 @@ const CloseButton = styled("button", {
   right: "30px",
 });
 
-interface ModalContainerProps {
+type ModalContainerProps = {
   headerText?: string;
   children: React.ReactNode;
 }

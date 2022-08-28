@@ -8,7 +8,6 @@ const MoodsContainer = styled("div", {
   display: "flex",
   alignContent: "center",
   columnGap: "8px",
-  // marginBottom: "42px",
   marginTop: "10px"
 });
 
@@ -37,7 +36,6 @@ const GlowingBackround = styled("div", {
   width: "100%",
   opacity: 0,
   transition: "opacity 300ms ease-in-out",
-  // top: "-66px",
   zIndex: 0,
 });
 
@@ -45,7 +43,7 @@ const MoodTooltip = styled("div", {
   position: "absolute",
   top: "-16px",
   zIndex: 100,
-  background: "$bg2",
+  background: "$bgSecondary",
   fontFamily: "Roboto",
   fontSize: "14px",
   color: "$btnText",
@@ -84,7 +82,7 @@ const MoodLabel = styled("label", {
   },
 });
 
-export interface Props {
+export type Props = {
   moods: MoodList;
   handleChange?: (mood: Mood) => void;
 }

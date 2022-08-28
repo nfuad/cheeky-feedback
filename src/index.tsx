@@ -7,11 +7,20 @@ import { styled } from "./theme";
 
 export const DEFAULT_MOODS_LIST = MOODS_DATA["msFluent"];
 
-export interface FeedbackData {
+export type FeedbackData = {
   mood: {
+    /**
+     * Score of the mood, with max = mood.total
+     */
     value: number;
+    /**
+     * Total number of moods in the list.
+     */
     total: number;
     label: string;
+    /**
+     * Unique identifier for the mood.
+     */
     id: string;
   };
   comment: string;
@@ -27,19 +36,14 @@ const Container = styled("div", {
 
 type HandleFeedbackSubmit = (data: FeedbackData) => void;
 
-interface CheekyFeebackProps {
+type CheekyFeebackProps = {
   handleSubmit: HandleFeedbackSubmit;
   moods: MoodList;
-  /**
-   * Text to be displayed in the header of the form.
-   */
-  headerText: string;
 }
 
 const CheekyFeeback: React.FC<CheekyFeebackProps> = ({
   handleSubmit,
   moods = DEFAULT_MOODS_LIST,
-  headerText = "How was your onboarding?",
 }) => {
   const [mood, setMood] = React.useState<Mood>();
 
