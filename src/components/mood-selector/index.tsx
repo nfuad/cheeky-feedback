@@ -71,7 +71,7 @@ const MoodLabel = styled("label", {
 
     [`&:checked ~ ${MoodIcon}`]: {
       filter: "blur(0)",
-      borderColor: "orange",
+      borderColor: "$borderColor",
       transform: "scale(1.315)",
       opacity: 1,
     },
