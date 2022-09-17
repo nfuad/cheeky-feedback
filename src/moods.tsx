@@ -1,4 +1,4 @@
-export interface Mood {
+export type Mood = {
   src: string;
   id: string;
   label: string;
@@ -6,7 +6,7 @@ export interface Mood {
 
 export type MoodList = Mood[];
 
-interface MoodsData {
+type MoodsData = {
   [key: string]: MoodList;
 }
 
