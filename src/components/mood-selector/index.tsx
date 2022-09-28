@@ -1,6 +1,7 @@
 import { styled } from "../../theme";
 import React from "react";
 import { Mood, MoodList, MOODS_DATA } from "../../moods";
+import { sansSerif } from "../../config";
 
 export const DEFAULT_MOODS_LIST = MOODS_DATA["msFluent"];
 
@@ -44,7 +45,7 @@ const MoodTooltip = styled("div", {
   top: "-16px",
   zIndex: 100,
   background: "$bgSecondary",
-  fontFamily: "sans-serif-apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif",
+  fontFamily: sansSerif,
   fontSize: "14px",
   color: "$btnText",
   borderRadius: "8px",

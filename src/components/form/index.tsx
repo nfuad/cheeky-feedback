@@ -1,4 +1,5 @@
 import { HandleFeedbackSubmit } from "../..";
+import { sansSerif } from "../../config";
 import { styled } from "../../theme";
 
 const FormContainer = styled("div", {
@@ -22,8 +23,7 @@ const TextArea = styled("textarea", {
   outline: "none",
   transition: "box-shadow 300ms ease-in-out",
 
-  fontFamily:
-    "sans-serif-apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif",
+  fontFamily: sansSerif,
   fontSize: "14px",
   fontWeight: "400",
   lineHeight: "140%",

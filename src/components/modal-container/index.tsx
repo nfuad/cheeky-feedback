@@ -1,4 +1,5 @@
 import { styled } from "@stitches/react";
+import { sansSerif } from "../../config";
 import { XIcon } from "../../icons/xicon";
 
 const Container = styled("div", {
@@ -15,7 +16,7 @@ const Container = styled("div", {
 });
 
 const Header = styled("div", {
-  fontFamily: "sans-serif-apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif",
+  fontFamily: sansSerif,
   fontWeight: "700",
   fontSize: "20px",
   lineHeight: "24px",

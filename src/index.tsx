@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Form } from "./components/form";
 import { ModalContainer } from "./components/modal-container";
 import { MoodSelector } from "./components/mood-selector";
+import { sansSerif } from "./config";
 import { Mood, MOODS_DATA, MoodList } from "./moods";
 import { styled } from "./theme";
 
@@ -32,7 +33,7 @@ const Container = styled("form", {
   alignItems: "center",
   maxWidth: "360px",
   position: "relative",
-  fontFamily: "sans-serif-apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif",
+  fontFamily: sansSerif,
 });
 
 export type HandleFeedbackSubmit = (data: FeedbackData) => void;
@@ -66,7 +67,6 @@ const CheekyFeeback: React.FC<CheekyFeebackProps> = ({
         label: mood.label,
         id: mood.id,
       };
-      console.log(moodData, comment);
       onSubmit({
         moodData,
         comment,
