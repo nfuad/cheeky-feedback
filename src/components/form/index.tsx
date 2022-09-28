@@ -1,3 +1,4 @@
+import { HandleFeedbackSubmit } from "../..";
 import { styled } from "../../theme";
 
 const FormContainer = styled("div", {
@@ -21,7 +22,8 @@ const TextArea = styled("textarea", {
   outline: "none",
   transition: "box-shadow 300ms ease-in-out",
 
-  fontFamily: "Roboto",
+  fontFamily:
+    "sans-serif-apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif",
   fontSize: "14px",
   fontWeight: "400",
   lineHeight: "140%",
@@ -47,19 +49,26 @@ const Button = styled("button", {
 });
 
 export type FormProps = {
-  isCollapsed: boolean;
-}
+  showForm: boolean;
+  onChange: (value: string) => void;
+};
 
-export const Form: React.FC<FormProps> = ({ isCollapsed = true }) => {
+export const Form: React.FC<FormProps> = ({ showForm = true, onChange }) => {
   return (
     <FormContainer
       css={{
-        maxHeight: isCollapsed ? "0px" : "250px",
-        marginTop: isCollapsed ? "0px" : "36px",
+        maxHeight: showForm ? "250px" : "0px",
+        marginTop: showForm ? "36px" : "0px",
       }}
     >
-      <TextArea id="form-text" placeholder="Tell us what you know..." />
-      <Button>Submit</Button>
+      <TextArea
+        onChange={(e) => {
+          onChange(e.target.value);
+        }}
+        id="form-text"
+        placeholder="Tell us what you know..."
+      />
+      <Button type="submit">Submit</Button>
     </FormContainer>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Form } from "./components/form";
 import { ModalContainer } from "./components/modal-container";
 import { MoodSelector } from "./components/mood-selector";
@@ -8,7 +8,7 @@ import { styled } from "./theme";
 export const DEFAULT_MOODS_LIST = MOODS_DATA["msFluent"];
 
 export type FeedbackData = {
-  mood: {
+  moodData: {
     /**
      * Score of the mood, with max = mood.total
      */
@@ -26,35 +26,59 @@ export type FeedbackData = {
   comment: string;
 }
 
-const Container = styled("div", {
+const Container = styled("form", {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   maxWidth: "360px",
   position: "relative",
+  fontFamily: "sans-serif-apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif",
 });
 
-type HandleFeedbackSubmit = (data: FeedbackData) => void;
+export type HandleFeedbackSubmit = (data: FeedbackData) => void;
 
 type CheekyFeebackProps = {
-  handleSubmit: HandleFeedbackSubmit;
+  onSubmit: HandleFeedbackSubmit;
   moods: MoodList;
+  showForm: boolean;
 }
 
 const CheekyFeeback: React.FC<CheekyFeebackProps> = ({
-  handleSubmit,
+  onSubmit = () => {},
   moods = DEFAULT_MOODS_LIST,
+  showForm = true,
 }) => {
   const [mood, setMood] = React.useState<Mood>();
+  const [comment, setComment] = React.useState("");
 
   const handleMoodChange = (mood: Mood) => {
     setMood(mood);
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    if (mood) {
+      const value = moods.findIndex((m) => m.id === mood.id) + 1;
+      let moodData = {
+        value,
+        total: moods.length,
+        label: mood.label,
+        id: mood.id,
+      };
+      console.log(moodData, comment);
+      onSubmit({
+        moodData,
+        comment,
+      });
+    }
+ 
+  };
+
   return (
-    <Container>
+    <Container onSubmit={handleSubmit}>
       <MoodSelector moods={moods} handleChange={handleMoodChange} />
-      <Form isCollapsed={!mood} />
+      <Form showForm={!!mood || showForm} onChange={(v) => setComment(v)} />
     </Container>
   );
 };

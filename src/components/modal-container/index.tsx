@@ -15,7 +15,7 @@ const Container = styled("div", {
 });
 
 const Header = styled("div", {
-  fontFamily: "sans-serif",
+  fontFamily: "sans-serif-apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif",
   fontWeight: "700",
   fontSize: "20px",
   lineHeight: "24px",

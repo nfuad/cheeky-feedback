@@ -44,7 +44,7 @@ const MoodTooltip = styled("div", {
   top: "-16px",
   zIndex: 100,
   background: "$bgSecondary",
-  fontFamily: "Roboto",
+  fontFamily: "sans-serif-apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif",
   fontSize: "14px",
   color: "$btnText",
   borderRadius: "8px",
@@ -101,7 +101,7 @@ export const MoodSelector: React.FC<Props> = ({
   return (
     <MoodsContainer>
       {moods.map(({ id, src, label }) => (
-        <MoodLabel htmlFor={id}>
+        <MoodLabel htmlFor={id} key={id}>
           <input
             type="radio"
             name="mood-selector"
