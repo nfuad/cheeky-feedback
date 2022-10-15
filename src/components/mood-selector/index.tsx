@@ -1,6 +1,7 @@
 import { styled } from "../../theme";
 import React from "react";
 import { Mood, MoodList, MOODS_DATA } from "../../moods";
+import { sansSerif } from "../../config";
 
 export const DEFAULT_MOODS_LIST = MOODS_DATA["msFluent"];
 
@@ -44,7 +45,7 @@ const MoodTooltip = styled("div", {
   top: "-16px",
   zIndex: 100,
   background: "$bgSecondary",
-  fontFamily: "Roboto",
+  fontFamily: sansSerif,
   fontSize: "14px",
   color: "$btnText",
   borderRadius: "8px",
@@ -101,7 +102,7 @@ export const MoodSelector: React.FC<Props> = ({
   return (
     <MoodsContainer>
       {moods.map(({ id, src, label }) => (
-        <MoodLabel htmlFor={id}>
+        <MoodLabel htmlFor={id} key={id}>
           <input
             type="radio"
             name="mood-selector"
